@@ -17,19 +17,19 @@ public abstract class Employee {
 
     public abstract int getHourPay();
 
-    private int getPrescribedMoney() {
-        return prescribed * getHourPay() * Rate.PRESCRIBED_TIME;
+    public int getPrescribedMoney() {
+        return (prescribed * getHourPay() * Rate.PRESCRIBED_TIME) / 100;
     }
 
-    private int getOvertimeMoney() {
-        return overtime * getHourPay() * Rate.OVERTIME;
+    public int getOvertimeMoney() {
+        return (overtime * getHourPay() * Rate.OVERTIME) / 100;
     }
 
-    private int getMidnightMoney() {
-        return midnight * getHourPay() * Rate.MIDNIGHT_OVERTIME;
+    public int getMidnightMoney() {
+        return (midnight * getHourPay() * Rate.MIDNIGHT_OVERTIME) / 100;
     }
 
-    public int toPay() {
-        return (getPrescribedMoney() + getOvertimeMoney() + getMidnightMoney()) / 100;
+    public int toTotalPay() {
+        return getPrescribedMoney() + getOvertimeMoney() + getMidnightMoney();
     }
 }

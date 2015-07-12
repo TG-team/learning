@@ -7,8 +7,8 @@ public class Main {
         Employee yamada = new NonPermanent(100, 5, 1);
         Employee tanaka = new Permanent(160, 25, 10);
 
-        System.out.println("Yamada : " + yamada.toPay());
-        System.out.println("Tanaka : " + tanaka.toPay());
+        System.out.println("Yamada : " + yamada.toTotalPay());
+        System.out.println("Tanaka : " + tanaka.toTotalPay());
     }
 
 }
