@@ -1,4 +1,4 @@
-package jp.co.technica;
+package jp.co.technica.imple.make_method.returnval;
 
 public class Main {
 
