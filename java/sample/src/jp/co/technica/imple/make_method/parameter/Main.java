@@ -2,13 +2,22 @@ package jp.co.technica.imple.make_method.parameter;
 
 public class Main {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
-        System.out.println("Hello World !!");
-        System.out.println("Hello World2 !!");
-        System.out.println("Hello World3 !!");
-        System.out.println("Hello World4 !!");
+
+    	int hour = 23;
+    	int minute = 59;
+    	int second = 59;
+
+    	Time.disp(hour, minute, second);
+
+
+    	Data data = new Data();
+
+    	data.hour	= 12;
+    	data.minute	= 30;
+    	data.second	= 30;
+
+    	Time.disp2(data);
+
     }
 }

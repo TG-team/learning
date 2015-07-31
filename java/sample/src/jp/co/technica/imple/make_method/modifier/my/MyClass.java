@@ -14,7 +14,7 @@ public class MyClass {
 	}
 
 	public static void public_method(){
-        System.out.println(" pulic Access OK !!");
+        System.out.println(" public Access OK !!");
 	}
 
 	protected static void protected_method(){
