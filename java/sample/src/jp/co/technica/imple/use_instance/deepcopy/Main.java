@@ -8,7 +8,7 @@ public class Main {
 	}
 
 
-	private Nemoto nemo = new Nemoto();
+	private Sasaki nemo = new Sasaki();
 	private Yamada_A yama = new Yamada_A();
 
 
