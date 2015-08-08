@@ -18,5 +18,6 @@ public class Main {
         builder.setBirth(calendar.getTimeInMillis());
         builder.setAddress("Japan");
         builder.setMale(true);
+        Vendor vendor = builder.build();
     }
 }
