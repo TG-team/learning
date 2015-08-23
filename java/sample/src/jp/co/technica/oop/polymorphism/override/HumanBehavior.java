@@ -9,5 +9,5 @@ public interface HumanBehavior {
 	/**
 	 * 人物の作業を行います。
 	 * */
-	void runThaWork();
+	void runTheWork();
 }

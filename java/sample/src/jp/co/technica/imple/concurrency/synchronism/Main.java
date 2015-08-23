@@ -49,7 +49,7 @@ public class Main {
 		Thread t = new Thread(){
 			InstanceBase ib;
 
-			private Thread setBroken(InstanceBase ib) {
+			private Thread setInstance(InstanceBase ib) {
 				this.ib = ib;
 				return this;
 			}
@@ -62,7 +62,7 @@ public class Main {
 					ib.countUp();
 				}
 			}
-		}.setBroken(instance);
+		}.setInstance(instance);
 
 		return t;
 	}

@@ -11,7 +11,7 @@ public class Momotaro implements HumanBehavior {
 	}
 
 	@Override
-	public void runThaWork() {
+	public void runTheWork() {
 		System.out.println("ちょっと鬼を分からせてきます。");
 		demonExtermination();
 	}

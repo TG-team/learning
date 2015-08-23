@@ -11,7 +11,7 @@ public class Jiji implements HumanBehavior{
 	}
 
 	@Override
-	public void runThaWork() {
+	public void runTheWork() {
 		System.out.println("山に柴刈りに行きます。");
 		int item = 100;
 		System.out.println("資材を獲得!!  数 : " + item);

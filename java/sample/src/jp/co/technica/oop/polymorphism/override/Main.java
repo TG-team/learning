@@ -34,7 +34,7 @@ public class Main {
 		//登場人物に名前を出力させ、それぞれの仕事をさせてみる。
 		for(HumanBehavior hb : list){
 			hb.outPrintThisName();
-			hb.runThaWork();
+			hb.runTheWork();
 			kaigyo();
 
 			is.outPrintStatus(); //国際情勢を確認

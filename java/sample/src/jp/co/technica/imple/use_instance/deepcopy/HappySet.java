@@ -25,7 +25,7 @@ public class HappySet implements Cloneable{
 	public void outPrintStatus(String name){
 		System.out.println("=== " + name + "==============");
 		System.out.println("ハンバーガー残量 : " + c.hamburgerRemainingAmount);
-		System.out.println("ハンバーガー残量 : " + c.cokeRemainingAmount);
+		System.out.println("コーラ残量       : " + c.cokeRemainingAmount);
 		System.out.println("=========================");
 	}
 

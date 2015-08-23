@@ -1,7 +1,6 @@
 package jp.co.technica.imple.use_instance.classcast;
 
 public class Letter extends TakuhaiObjectBase{
-	private int strength = 10;
 
 	@Override
 	public void contentsConfirmation(){
@@ -9,7 +8,6 @@ public class Letter extends TakuhaiObjectBase{
 	}
 
 	public void setCardboard(){
-		strength+=50;
 		System.out.println("強度が増加されました。\n");
 	}
 

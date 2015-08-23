@@ -8,7 +8,7 @@ public class Main {
 	}
 
 
-	private Sasaki nemo = new Sasaki();
+	private Sasaki sasa = new Sasaki();
 	private Yamada_A yama = new Yamada_A();
 
 
@@ -16,7 +16,7 @@ public class Main {
 
 		kaigyo();
 
-		//根本さんと山田(秋)さんはマクドナルドにいきました。
+		//佐々木さんと山田(秋)さんはマクドナルドにいきました。
 
 		//マクドナルドでハッピーセットを二つ頼みます。
 		HappySet hs = new HappySet();
@@ -25,12 +25,12 @@ public class Main {
 		HappySet hs2 = hs.clone();
 
 		//お待ち同様
-		nemo.setFood(hs);
+		sasa.setFood(hs);
 		yama.setFood(hs2);
 
 		outPrintStatus();
 
-		nemo.outPrintSpeak("頂きます。");
+		sasa.outPrintSpeak("頂きます。");
 		yama.outPrintSpeak("頂きます。\n");
 		//二人は仲良く食事に入ります。が...
 
@@ -39,7 +39,7 @@ public class Main {
 
 		outPrintStatus();
 
-		nemo.outPrintSpeak("あれ？まだ食べてないのに減ってる... \n");
+		sasa.outPrintSpeak("あれ？まだ食べてないのに減ってる... \n");
 
 		yama.outPrintSpeak("おいしいね。もぐもぐ、ごくごく \n");
 		yama.eat();
@@ -47,15 +47,15 @@ public class Main {
 
 		outPrintStatus();
 
-		nemo.outPrintSpeak("？？？食べものも飲み物も減ってる...  ギロ(視線を向ける)\n");
+		sasa.outPrintSpeak("？？？食べものも飲み物も減ってる...  ギロ(視線を向ける)\n");
 
 		yama.outPrintSpeak("ん？どうしたの？\n");
 
-		nemo.outPrintSpeak("何人の勝手に食ってんだー!!\n");
+		sasa.outPrintSpeak("何人の勝手に食ってんだー!!\n");
 
 		yama.outPrintSpeak("ええ!?食べてないよ!? 自分の分だけ食べてたよ!!\n");
 
-		nemo.outPrintSpeak("このやろー!!     バシィ!!\n");
+		sasa.outPrintSpeak("このやろー!!     バシィ!!\n");
 		yama.outPrintSpeak("や、やめてー!!  ボキィ!!（骨折）\n");
 
 //		Object#clone()のコピー方法は、シャローコピー（shallow copy：浅いコピー）と呼ばれるもの。
@@ -75,7 +75,7 @@ public class Main {
 
 	public void outPrintStatus(){
 		kaigyo();
-		nemo.outPrintStatus();
+		sasa.outPrintStatus();
 		kaigyo();
 		yama.outPrintStatus();
 		kaigyo();

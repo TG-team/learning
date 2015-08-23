@@ -68,31 +68,16 @@ public class Bartender {
 
 	private DrinkMenu getRandomDrink(){
 
-		int random = (int)(Math.random() * 3); //オススメはランダムで決めます。
 
-		DrinkMenu m;
-		switch(random){
-		case 0:	m = DrinkMenu.MoscowMule; break;
-		case 1:	m = DrinkMenu.Mojito;break;
-		case 2:	m = DrinkMenu.Matador;break;
-		default: m = DrinkMenu.MoscowMule;
-		}
+		int random = (int)(Math.random() * DrinkMenu.values().length); //オススメはランダムで決めます。
 
-		return m;
+		return DrinkMenu.values()[random];
 	}
 
 	private SnackMenu getRandomSnack(){
 
-		int random = (int)(Math.random() * 3); //オススメはランダムで決めます。
+		int random = (int)(Math.random() * SnackMenu.values().length); //オススメはランダムで決めます。
 
-		SnackMenu s;
-		switch(random){
-		case 0:	s = SnackMenu.Crisps; break;
-		case 1:	s = SnackMenu.DryFruits;break;
-		case 2:	s = SnackMenu.Cheese;break;
-		default: s = SnackMenu.Crisps;
-		}
-
-		return s;
+		return SnackMenu.values()[random];
 	}
 }

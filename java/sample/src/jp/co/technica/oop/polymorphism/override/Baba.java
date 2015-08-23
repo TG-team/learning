@@ -11,7 +11,7 @@ public class Baba implements HumanBehavior{
 	}
 
 	@Override
-	public void runThaWork() {
+	public void runTheWork() {
 		System.out.println("川へ洗濯に行きます。");
 		int point = 100;
 		System.out.println("衛生度が上昇!!  ポイント : " + point);
