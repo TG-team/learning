@@ -1,9 +1,9 @@
 package jp.co.technica.imple.make_method.returnval;
 
-abstract class returnptn {
+abstract class ObjPtn {
 	protected String name;
 
-	public void setdisp(String date){
+	public void setDisp(String date){
 		name = date;
 		return;
 	}
