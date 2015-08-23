@@ -2,15 +2,21 @@ package jp.co.technica.imple.make_method.modifier.my;
 
 public class OtherClass {
 
-    public static void other_test() {
-        System.out.println("OtherClass");
+    public void otherTest() {
+		/* クラス名出力 */
+		System.out.println("クラス名：" + getClass().getName());
 
-        MyClass.public_method();
-        MyClass.protected_method();
-        MyClass.method();
-        //MyClass.private_method();		他クラスの為アクセス不可
-        System.out.println(" private Access NG");
+		/* メソッド実行 */
+		MyClass.publicMethod();
 
-        System.out.println("");
+		MyClass.protectedMethod();
+
+		MyClass.method();
+
+		//MyClass.privateMethod();		同じクラス内でのみアクセス可能のためコンパイルエラー
+		System.out.println(" private Access NG");
+		System.out.println(" ※他クラスの為アクセス不可");
+
+		System.out.println("");
     }
 }

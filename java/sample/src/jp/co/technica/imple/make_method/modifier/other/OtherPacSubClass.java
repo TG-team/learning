@@ -2,18 +2,16 @@ package jp.co.technica.imple.make_method.modifier.other;
 
 import jp.co.technica.imple.make_method.modifier.my.MyClass;
 
-public class OtherPacClass {
+public class OtherPacSubClass extends MyClass {
 
-    public void otherPacTest() {
+    public void otherPacSubTest() {
 		/* クラス名出力 */
 		System.out.println("クラス名：" + getClass().getName());
 
 		/* メソッド実行 */
 		MyClass.publicMethod();
 
-		//MyClass.protectedMethod();		同じパッケージ内、継承したサブクラス内でのみアクセス可能のためコンパイルエラー
-		System.out.println(" protected Access NG");
-		System.out.println(" ※他パッケージクラス、もしくは、MyClass継承クラスでない為アクセス不可");
+		MyClass.protectedMethod();
 
 		//MyClass.method();					同じパッケージ内でのみアクセス可能のためコンパイルエラー
 		System.out.println(" non Access NG");

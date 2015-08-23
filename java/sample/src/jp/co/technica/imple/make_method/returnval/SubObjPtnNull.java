@@ -1,8 +1,8 @@
 package jp.co.technica.imple.make_method.returnval;
 
-public class nullreturnptn extends returnptn{
+public class SubObjPtnNull extends ObjPtn{
 
-	public nullreturnptn() {}
+	public SubObjPtnNull() {}
 	void disp(){
 	}
 }

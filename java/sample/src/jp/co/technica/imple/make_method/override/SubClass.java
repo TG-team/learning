@@ -2,14 +2,15 @@ package jp.co.technica.imple.make_method.override;
 
 public class SubClass  extends SuperClass{
 
-	public static void orerride(){
-		System.out.println("Sub Class");
+	@Override
+	public void disp(){
+		System.out.println(" SubClassのメソッド(オーバーライド)");
 	}
 
-//	public static void noorerride(){		//SuperClassでfinal宣言している為、
-//        System.out.println("Sub Class");	//オーバーライド不可
-//	}
-
-
+/*
+public static void dispFinal(){										//SuperClassでfinal宣言している為、
+        System.out.println(" SubClassのメソッド(オーバーライド)");	//コンパイルエラーとなる
+	}
+*/
 
 }

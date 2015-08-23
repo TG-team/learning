@@ -2,30 +2,40 @@ package jp.co.technica.imple.make_method.modifier.my;
 
 public class MyClass {
 
-	public static void test(){
-        System.out.println("MyClass");
+	public void test(){
 
-        MyClass.public_method();
-        MyClass.protected_method();
-        MyClass.method();
-        MyClass.private_method();
+		/* クラス名出力 */
+		System.out.println("クラス名：" + getClass().getName());
 
-        System.out.println("");
+		/* メソッド実行 */
+		MyClass.publicMethod();
+
+		MyClass.protectedMethod();
+
+		MyClass.method();
+
+		MyClass.privateMethod();
+
+		System.out.println("");
 	}
 
-	public static void public_method(){
-        System.out.println(" public Access OK !!");
+	public static void publicMethod(){
+		System.out.println(" public Access OK !!");
+		System.out.println(" ※全てのクラスからアクセス可能");
 	}
 
-	protected static void protected_method(){
-        System.out.println(" protected Access OK !!");
+	protected static void protectedMethod(){
+		System.out.println(" protected Access OK !!");
+		System.out.println(" ※同パッケージクラス、もしくは、MyClass継承クラスからアクセス可能");
 	}
 
-	 static void method(){
-        System.out.println(" non Access OK !!");
+	static void method(){
+		System.out.println(" non Access OK !!");
+		System.out.println(" ※同パッケージクラスからアクセス可能");
 	}
 
-	private static void private_method(){
-        System.out.println(" private Access OK !!");
+	private static void privateMethod(){
+		System.out.println(" private Access OK !!");
+		System.out.println(" ※同クラスからアクセス可能");
 	}
 }

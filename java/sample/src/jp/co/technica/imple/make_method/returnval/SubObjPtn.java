@@ -1,7 +1,7 @@
 package jp.co.technica.imple.make_method.returnval;
 
-public class Subreturnptn extends returnptn{
-	public Subreturnptn(){}
+public class SubObjPtn extends ObjPtn{
+	public SubObjPtn(){}
 	void disp(){
 		System.out.println(name);
 	}
