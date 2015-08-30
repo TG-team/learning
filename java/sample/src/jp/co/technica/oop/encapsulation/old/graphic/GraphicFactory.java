@@ -1,4 +1,4 @@
-package jp.co.technica.oop.encapsulation.graphic;
+package jp.co.technica.oop.encapsulation.old.graphic;
 
 public class GraphicFactory {
 
