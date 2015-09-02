@@ -4,65 +4,116 @@ import java.util.List;
 
 public class Main {
 
-	static int count;
+	static int i;
+
 	public static void main(String[] args) {
 
 		/* 配列 */
-    	Main.dispArray(2);
-    	Main.dispArray(5);	//空の配列を返却する
-
-		System.out.println("");
+    	Main.testArray();
+		System.out.println();
 
 		/* リスト */
-    	Main.dispList(1);
-    	Main.dispList(6);	//Collections.empty～系を返却する
-
-		System.out.println("");
+    	Main.testList();
+		System.out.println();
 
 		/* オブジェクトパターン */
-		Main.dispObj("四郎");
+		Main.testObj();
+		System.out.println();
     }
 
-	public static void dispArray(int no) {
+	public static void testArray() {
     	/* インスタンス作成 */
-    	Score score = new Score();
+    	ScoreArray score = new ScoreArray();
     	String[] array;
 
+    	/* 配列設定 */
+    	score.setArray("一郎");
+    	score.setArray("二郎");
+    	score.setArray("三郎");
+
     	/* 配列取得 */
-    	array = score.getArrayName(no);
+    	array = score.getArray();
 
-    	/* 名前表示 */
-		System.out.println(no+1 + "位：" + array[no]);
+    	/* 配列表示 */
+		System.out.println("配列を表示");
+    	for(i = 0 ; i < array.length ; i++){
+    		System.out.println("[" + i + "]:" + array[i]);
+    	}
+		System.out.println();
 
+    	/* 配列消去*/
+    	score.cleanArray();
+
+    	/* 配列取得 */
+    	array = score.getArray();
+
+    	/* 配列表示 */
+		System.out.println("配列を表示");
+    	for(i = 0 ; i < array.length ; i++){
+    		System.out.println("[" + i + "]:" + array[i]);
+    	}
+		System.out.println();
 	}
 
-	public static void dispList(int no) {
+	public static void testList() {
     	/* インスタンス作成 */
-    	Score score = new Score();
+    	ScoreList score = new ScoreList();
     	List<String> list;
 
+    	/* リスト設定 */
+    	score.setList("四朗");
+    	score.setList("五朗");
+
     	/* リスト取得 */
-    	list = score.getListName(no);
+    	list = score.getList();
 
-    	/* 名前表示 */
-		System.out.println("順位：" + list);
+		/* リスト表示 */
+		System.out.println("リストを表示");
+    	for(i = 0 ; i < list.size() ; i++){
+    		System.out.println("[" + i + "]:" + list.get(i));
+    	}
+		System.out.println();
+
+		/* リスト削除 */
+    	score.cleanList();
+
+    	/* リスト取得 */
+    	list = score.getList();
+
+		/* リスト表示 */
+		System.out.println("リストを表示");
+    	for(i = 0 ; i < list.size() ; i++){
+    		System.out.println("[" + i + "]:" + list.get(i));
+    	}
+		System.out.println();
 
 	}
 
-	public static void dispObj(String name) {
-		/* オブジェクト作成 */
-		ObjPtn[] ptn ={
-				new SubObjPtn(),
-				//null				//Nullにしてしまうと呼び出し側でNullチェックが必要
-				new SubObjPtnNull() //NullではなくNullObjectパターン
-		};
+	public static void testObj() {
 
-		/* オブジェクト分実行 */
-		for(ObjPtn tmpptn : ptn){
-			tmpptn.setDisp(name);
-			tmpptn.disp();
-		}
+    	/* インスタンス作成 */
+		ScoreObj score = new ScoreObj();
+
+		ObjPtn ichiro = score.getObj("一郎");
+
+		/* 得点設定 */
+		ichiro.setScore(99);
+
+		/* 得点表示 */
+		System.out.println("得点を表示");
+		ichiro.dispData();
+		System.out.println();
+
+
+		ObjPtn jiro = score.getObj("");
+
+		/* 得点設定 */
+		jiro.setScore(99);
+
+		/* 得点表示 */
+		System.out.println("得点を表示");
+		jiro.dispData();
 
 	}
-
 }
+
