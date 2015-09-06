@@ -81,7 +81,7 @@ public class Main {
 
         long time = System.currentTimeMillis();
         long sum1 = 0;
-        for (int i = 0; i < Integer.MAX_VALUE; i++) {
+        for (int i = 0; i < 100000000; i++) {
             sum1 += i;
         }
         System.out.println("Time(primitive) : "
@@ -89,7 +89,7 @@ public class Main {
 
         time = System.currentTimeMillis();
         Long sum2 = 0L;
-        for (int i = 0; i < Integer.MAX_VALUE; i++) {
+        for (int i = 0; i < 100000000; i++) {
             sum2 += i;
         }
         System.out.println("Time(wrapper) : "
