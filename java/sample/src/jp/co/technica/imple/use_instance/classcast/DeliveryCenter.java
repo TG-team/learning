@@ -55,8 +55,6 @@ public class DeliveryCenter {
 				//精密機器には取り扱い注意のシールを貼る
 				((PrecisionMachinery)obj).setWaremonoSticker();
 
-			}else{
-				obj = null;
 			}
 		}
 	}
