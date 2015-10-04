@@ -1,0 +1,9 @@
+package jp.co.technica.oop.encapsulation.old.graphic;
+
+interface Draw {
+
+    void line(double x1, double y1, double x2, double y2);
+
+    void circle(double x, double y, double r);
+
+}
