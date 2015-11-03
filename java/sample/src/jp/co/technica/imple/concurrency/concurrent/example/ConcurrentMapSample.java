@@ -1,4 +1,4 @@
-package jp.co.technica.concurrent.example;
+package jp.co.technica.imple.concurrency.concurrent.example;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,7 +32,7 @@ import java.util.concurrent.ConcurrentMap;
 public class ConcurrentMapSample {
 
 	public static void main(String[] args) throws InterruptedException {
-		
+
 		//普通のHashMapを使用
 		int total = 0;
 		System.out.print("Added Count:");
@@ -43,7 +43,7 @@ public class ConcurrentMapSample {
 		}
 		System.out.println();
 		System.out.println("Average:" + total / 10f);
-		
+
 		//ConcurrentHashMapを使用
 		total = 0;
 		System.out.print("Added Count:");
@@ -54,7 +54,7 @@ public class ConcurrentMapSample {
 		}
 		System.out.println();
 		System.out.println("Average:" + total / 10f);
-		
+
 		//キャッシュの影響を受けているかもしれないのでもう１度HashMapで実行
 		total = 0;
 		System.out.print("Added Count:");
@@ -66,7 +66,7 @@ public class ConcurrentMapSample {
 		System.out.println();
 		System.out.println("Average:" + total / 10f);
 	}
-	
+
 	/**
 	 * Map追加スレッドを10個作成し並列実行する。
 	 * Map追加スレッド内では、追加処理を1000回実行し、{@code interrupt()}が発生していない場合は、
@@ -78,7 +78,7 @@ public class ConcurrentMapSample {
 	 */
 	public static int raceConditionTest(Map<Long, String> map) throws InterruptedException {
 		System.gc();
-		
+
 		Thread[] threads = new Thread[]{
 				new Thread(new AddTask(map, 0)),
 				new Thread(new AddTask(map, 1000000L)),
@@ -91,33 +91,33 @@ public class ConcurrentMapSample {
 				new Thread(new AddTask(map, 8000000L)),
 				new Thread(new AddTask(map, 9000000L))
 		};
-		
+
 		for (Thread t : threads) {
 			t.start();
 		}
-		
+
 		//0.5秒間続行
 		Thread.sleep(500l);
-		
+
 		for (Thread t : threads) {
 			t.interrupt();
 		}
-		
+
 		//全てのスレッドの完全停止を待つ
 		for (Thread t : threads) {
 			while(t.isAlive()) Thread.sleep(10);
 		}
-		
+
 		return map.size();
 	}
-	
+
 	/**
 	 * Map追加タスク
 	 * <br/>
 	 *
 	 */
 	static class AddTask implements Runnable {
-		
+
 		private final Map<Long, String> workMap;
 		private final long offset;
 		public AddTask(Map<Long, String> map, long offset) {
@@ -138,7 +138,7 @@ public class ConcurrentMapSample {
 						putIfAbsent(workMap, i++);
 					}
 				} while (i % 1000 != 0);
-				
+
 				//mainスレッドの割り込みを受信出来るようにする
 				try {
 					Thread.sleep(10);
@@ -149,7 +149,7 @@ public class ConcurrentMapSample {
 				}
 			}
 		}
-		
+
 		/**
 		 * コンカレントコレクションを使用して追加を行う。
 		 * keyが既に追加されているか確認し、無ければ追加を行う。
@@ -161,7 +161,7 @@ public class ConcurrentMapSample {
 		private void putIfAbsent(ConcurrentMap<Long, String> map, long key) {
 			map.putIfAbsent(key, "Added");
 		}
-		
+
 		/**
 		 * コレクションを使用して追加を行う。
 		 * keyが既に追加されているか確認し、無ければ追加を行う。

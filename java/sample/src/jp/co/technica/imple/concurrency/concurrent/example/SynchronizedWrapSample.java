@@ -1,4 +1,4 @@
-package jp.co.technica.concurrent.example;
+package jp.co.technica.imple.concurrency.concurrent.example;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,7 +13,7 @@ import java.util.List;
  * 　・タスク１(AddTask)<br/>
  * 　　0〜9の整数をリストの先頭に順に追加する<br/>
  * 　　(先頭に追加指定ので数字が逆順になる)<br/>
- * 
+ *
  * 　・タスク２(RemoveTask)<br/>
  * 　　リスト内に9があれば、1〜9を削除する（0を残す）<br/>
  * <br/>
@@ -30,90 +30,90 @@ public class SynchronizedWrapSample {
 	public static void main(String[] args) throws InterruptedException {
 		threadUnsafeTest();
 		threadSafeTest();
-		
+
 		//MapやSetのスレッドセーフ化もできる
 		//Collections.synchronizedMap(map);
 		//Collections.synchronizedSet(set);
 	}
-	
+
 	/**
 	 * スレッドセーフではないリストをそのまま使用した場合の動作確認
 	 * @throws InterruptedException
 	 */
 	public static void threadUnsafeTest() throws InterruptedException {
-		
+
 		//スレッドセーフではないリストの作成
 		List<Integer> threadUnsafeList = new ArrayList<Integer>();
-		
+
 		//タスク（スレッド）の平行実行開始
 		Thread addTask = new Thread(new AddTask(threadUnsafeList));
 		Thread removeTask = new Thread(new RemoveTask(threadUnsafeList));
 		addTask.start();
 		removeTask.start();
-		
+
 		//1秒間続行
 		Thread.sleep(1000l);
-		
+
 		//タスク（スレッド）終了
 		//先に追加タスクの終了を行う
 		addTask.interrupt();
-		
+
 		//追加タスクで追加したリスト全てを処理出来るように少し終了をずらす
 		Thread.sleep(50l);
 		removeTask.interrupt();
-		
+
 		//両スレッドの完全終了を待つ
 		while(addTask.isAlive() || removeTask.isAlive()) {
 			Thread.sleep(10l);
 		}
-		
+
 		//「0」意外入っていないはずなので全て削除されるはず・・・
 		threadUnsafeList.removeAll(Arrays.asList(0));
 		System.out.println(threadUnsafeList);
 	}
-	
+
 	/**
 	 * スレッドセーフではないリストを
 	 * {@code Collections.synchronizedList()}でラップしたリストの動作確認
 	 * @throws InterruptedException
 	 */
 	public static void threadSafeTest() throws InterruptedException {
-		
+
 		//スレッドセーフではないリストの作成
 		List<Integer> threadUnsafeList = new ArrayList<Integer>();
-		
+
 		//リストをスレッドセーフなリストにラップする
 		//========================================================
 		List<Integer> threadSafeList = Collections.synchronizedList(threadUnsafeList);
 		//========================================================
-		
+
 		//タスク（スレッド）の平行実行開始
 		Thread addTask = new Thread(new AddTask(threadSafeList));
 		Thread removeTask = new Thread(new RemoveTask(threadSafeList));
 		addTask.start();
 		removeTask.start();
-		
+
 		//1秒間続行
 		Thread.sleep(1000l);
-		
+
 		//タスク（スレッド）終了
 		//先に追加タスクの終了を行う
 		addTask.interrupt();
-		
+
 		//追加タスクで追加したリスト全てを処理出来るように少し終了をずらす
 		Thread.sleep(50l);
 		removeTask.interrupt();
-		
+
 		//両スレッドの完全終了を待つ
 		while(addTask.isAlive() || removeTask.isAlive()) {
 			Thread.sleep(10l);
 		}
-		
+
 		//「0」意外入っていないはずなので全て削除されるはず・・・
 		threadSafeList.removeAll(Arrays.asList(0));
 		System.out.println(threadSafeList);
 	}
-	
+
 	/**
 	 * リスト追加タスク
 	 * <br/>
@@ -122,7 +122,7 @@ public class SynchronizedWrapSample {
 	 *
 	 */
 	static class AddTask implements Runnable {
-		
+
 		private final List<Integer> workList;
 		public AddTask(List<Integer> list) { workList = list;}
 
@@ -135,7 +135,7 @@ public class SynchronizedWrapSample {
 				for (int i = 0; i < 1000; i++) {
 					workList.add(0, i % 10);
 				}
-				
+
 				//mainスレッドの割り込みを受信出来るようにする
 				try {
 					//高負荷になりすぎないように、10ミリ秒停止する
@@ -148,7 +148,7 @@ public class SynchronizedWrapSample {
 			}
 		}
 	}
-	
+
 	/**
 	 * リスト削除タスク
 	 * <br/>
@@ -156,7 +156,7 @@ public class SynchronizedWrapSample {
 	 *
 	 */
 	static class RemoveTask implements Runnable {
-		
+
 		private final List<Integer> workList;
 		public RemoveTask(List<Integer> list) { workList = list;}
 
@@ -177,7 +177,7 @@ public class SynchronizedWrapSample {
 					workList.remove((Integer)2);
 					workList.remove((Integer)1);
 				}
-				
+
 				//mainスレッドの割り込みを受信出来るようにする
 				try {
 					//高負荷になりすぎないように、10ミリ秒停止する

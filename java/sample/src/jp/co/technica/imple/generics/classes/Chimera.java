@@ -1,8 +1,8 @@
-package jp.co.technica.generics.classes;
+package jp.co.technica.imple.generics.classes;
 
 /**
  * 犬と猫のキメラ
- * 
+ *
  * @author fujimotoryouichi
  *
  */

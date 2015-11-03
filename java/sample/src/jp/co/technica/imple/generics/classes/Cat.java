@@ -1,8 +1,8 @@
-package jp.co.technica.generics.classes;
+package jp.co.technica.imple.generics.classes;
 
 /**
  * 猫科の動物を表すインターフェイス
- * 
+ *
  * @author fujimotoryouichi
  *
  */

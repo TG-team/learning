@@ -1,8 +1,8 @@
-package jp.co.technica.generics.classes;
+package jp.co.technica.imple.generics.classes;
 
 /**
  * Dog具象のボストンテリアクラス
- * 
+ *
  * @author fujimotoryouichi
  *
  */

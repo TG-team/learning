@@ -1,13 +1,13 @@
-package jp.co.technica.generics.classes;
+package jp.co.technica.imple.generics.classes;
 
 /**
  * 動物全般（人間含む）を表すインターフェス
- * 
+ *
  * @author fujimotoryouichi
  *
  */
 public interface Animal {
-	
+
 	/** 名前を返します */
 	public String name();
 
