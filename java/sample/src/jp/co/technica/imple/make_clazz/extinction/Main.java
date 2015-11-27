@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
 
         play(new Player(), createEnemys());
-        System.out.println("●チートキャラを作りました");
+        System.out.println("★チートキャラを作りました");
         play(new Cheater(), createEnemys());
 
     }
@@ -26,14 +26,14 @@ public class Main {
         System.out.println("========ゲーム開始========");
         for (GameCharacter enemy : enemys) {
             String enemyName = enemy.getClass().getSimpleName();
-            System.out.println(enemyName + "が現れた");
+            System.out.println("@"+enemyName + "が現れた");
 
             while (isAlive(player)) {
-                System.out.println("--プレイヤーの攻撃");
+                System.out.println("○プレイヤーの攻撃");
                 player.attack(enemy);
 
                 if (isAlive(enemy)) {
-                    System.out.println("----" + enemyName + "の攻撃");
+                    System.out.println("●" + enemyName + "の攻撃");
                     enemy.attack(player);
                 } else {
                     System.out.println(enemyName + "を倒した");

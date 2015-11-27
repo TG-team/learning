@@ -24,8 +24,10 @@ public class Enemy1 implements GameCharacter {
     public void damage(int damage) {
         parameter.hp -= damage;
         if (parameter.hp <= 0) {
+            parameter.hp = 0;
             state = State.DEAD;
         }
+        System.out.println("Enemy1の残りHP：" + parameter.hp);
     }
 
     @Override

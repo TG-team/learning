@@ -24,8 +24,10 @@ public class Boss implements GameCharacter {
     public void damage(int damage) {
         parameter.hp -= damage / 2;
         if (parameter.hp <= 0) {
+            parameter.hp = 0;
             state = State.DEAD;
         }
+        System.out.println("BOSSの残りHP：" + parameter.hp);
     }
 
     @Override

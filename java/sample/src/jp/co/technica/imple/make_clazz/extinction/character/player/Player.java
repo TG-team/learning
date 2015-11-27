@@ -25,8 +25,10 @@ public class Player implements GameCharacter {
     public void damage(int damage) {
         parameter.hp -= damage;
         if (parameter.hp <= 0) {
+            parameter.hp = 0;
             state = State.DEAD;
         }
+        System.out.println("プレイヤーの残りHP ： " + parameter.hp);
     }
 
     @Override
